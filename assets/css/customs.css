@@ -1,0 +1,13 @@
+.textCenter{
+    text-align: center;
+}
+.textFontWeight{
+    font-weight: 700;
+}
+.profilePicture{
+    width: 120px;
+    height: 100px;
+}
+.textSmall{
+    font-size: 14px;
+}
