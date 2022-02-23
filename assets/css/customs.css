@@ -11,3 +11,26 @@
 .textSmall{
     font-size: 14px;
 }
+.user-area .user-form-content .user-form .form-group {
+    margin-bottom: 15px;
+}
+.form-control {
+    height: 40px;
+    color: #00aa55;
+    border: 1px solid #e1e1e1;
+    background-color: transparent;
+    border-radius: 0;
+    font-size: 16px;
+    padding: 10px 20px;
+    width: 100%;
+}
+option {
+    font-weight: normal;
+    display: block;
+    white-space: nowrap;
+    min-height: 1em;
+    padding: 0px 2px 1px;
+}
+.newAddWarish{
+    margin-top: 35px;
+}
