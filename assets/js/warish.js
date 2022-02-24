@@ -13,7 +13,7 @@
 
     if(Emptycheck(nextindex-1) =='' ){
 
-       var max = 20;
+       var max = 30;
 
        if(total_element < max ){
        $(".element2:last").after("<div class='row element2' id='warishAreaDiv_"+ nextindex +"'></div>");

@@ -477,20 +477,50 @@ window.__mirage2 = {petok:"4c2318d287415bc4f4b492037d851f3a18a84d40-1644989489-1
 		<section class="user-area ptb-100">
 			<div class="container">
 				<div class="user-form-content register-width">
-					<h3> নতুন হোল্ডিং আবেদন </h3>
-
+					<h3>ট্রেড লাইসেন্স আবেদন</h3>
 					<form class="user-form">
 						<div class="row">
 							<div class="col-6">
 								<div class="form-group">
-									<label>নাম (ইংরেজিতে)</label>
+									<label>প্রতিষ্ঠানের নাম (ইংরেজিতে)</label>
 									<input class="form-control" type="text" name="name">
 								</div>
 							</div>
 							<div class="col-6">
 								<div class="form-group">
-									<label>নাম (বাংলায়)</label>
+									<label>প্রতিষ্ঠানের নাম (বাংলায়) </label>
 									<input class="form-control" type="text" name="name">
+								</div>
+							</div>
+							<div class="col-6">
+								<div class="form-group">
+									<label> প্রতিষ্ঠানের মালিকানার ধরণ  </label>
+									<select  class="form-control" name="wonerType" id="wonerType" onchange="ownerType(this.value)">
+										<option value=""> চিহ্নিত করুন </option>
+										<option value="1"> ব্যক্তি মালিকানাধীন </option>
+										<option value="2"> যৌথ মালিকানা </option>
+										<option value="3"> কোম্পানী </option>
+									</select>
+								</div>
+							</div>
+
+						</div><br>
+						 <div class="row element" id="licenseAreaDiv_1">
+							<p class="textCenter textFontWeight" id=""> মালিকের তথ্য  </p>
+							<p id="newOwnarArea" style="display: none;">
+								মালিকের তথ্য 1 &nbsp;&nbsp;
+								<button class="btn btn-sm btn-success" type="button" id="ownarPlusBtn" onclick="addNewOwnar();"><i class="ri-add-box-fill"></i> নতুন মালিক </button>
+							</p>
+							<div class="col-6">
+								<div class="form-group">
+									<label>নাম (ইংরেজিতে)</label>
+									<input class="form-control" type="text" name="name" id="nameEN_1">
+								</div>
+							</div>
+							<div class="col-6">
+								<div class="form-group">
+									<label>নাম (বাংলায়)</label>
+									<input class="form-control" type="text" name="name" id="nameBN_1">
 								</div>
 							</div>
 
@@ -611,55 +641,6 @@ window.__mirage2 = {petok:"4c2318d287415bc4f4b492037d851f3a18a84d40-1644989489-1
 									</select>
 								</div>
 							</div>
-						</div>
-						<div class="row">
-							<p class="textCenter textFontWeight">পোষা প্রাণীর তথ্য</p>
-
-							<div class="col-6">
-								<div class="form-group">
-									<label>প্রস্তাবিত হোল্ডিং এর পার্শ্ববর্তী হোল্ডিং নং </label>
-									<input class="form-control" type="text" name="name">
-								</div>
-							</div>
-
-							<div class="col-6">
-								<div class="form-group">
-									<label>প্রস্তাবিত হোল্ডিং এর নির্মাণ তারিখ </label>
-									<input class="form-control" type="date" name="name">
-								</div>
-							</div>
-
-							<div class="col-6">
-								<div class="form-group">
-									<label>প্রস্তাবিত হোল্ডিং  </label>
-									<input class="form-control" type="text" name="name">
-								</div>
-							</div>
-
-							<div class="col-6">
-								<div class="form-group">
-									<label>ঘরের পূর্ণ বিবরণ </label>
-									<input class="form-control" type="text" name="name">
-								</div>
-							</div>
-							<div class="col-6">
-								<div class="form-group">
-									<label>দাখিলকৃত কাগজ পত্র </label>
-									<input class="form-control" type="file" name="name">
-									<span class="textSmall">দলিল/পর্চার ফটোকপি, নামজারী, ডি,সি,আর, খাজনার রশিদ</span>
-								</div>
-							</div>
-
-							<div class="col-6">
-								<div class="form-group">
-									<label>গৃহ নির্মাণ ঋণ থাকলে তার সমূদয় কাগজপত্র </label>
-									<input class="form-control" type="file" name="name">
-								</div>
-							</div>
-							
-						</div>
-
-						<div class="row">
 							<p class="textCenter textFontWeight">বর্তমান  ঠিকানা</p>
 
 							<div class="col-6">
@@ -753,9 +734,132 @@ window.__mirage2 = {petok:"4c2318d287415bc4f4b492037d851f3a18a84d40-1644989489-1
 									<input class="form-control" type="text" name="name">
 								</div>
 							</div>
+							<p class="textCenter textFontWeight">স্থায়ী ঠিকানা</p>
+
+							<div class="col-6">
+								<div class="form-group">
+									<label>গ্রাম/মহল্লা (ইংরেজিতে)</label>
+									<input class="form-control" type="text" name="name">
+								</div>
+							</div>
+
+							<div class="col-6">
+								<div class="form-group">
+									<label>গ্রাম/মহল্লা (বাংলায়) </label>
+									<input class="form-control" type="text" name="name">
+								</div>
+							</div>
+
+							<div class="col-6">
+								<div class="form-group">
+									<label>রোড/ব্লক/সেক্টর (ইংরেজিতে)</label>
+									<input class="form-control" type="text" name="name">
+								</div>
+							</div>
+
+							<div class="col-6">
+								<div class="form-group">
+									<label>রোড/ব্লক/সেক্টর (বাংলায়)</label>
+									<input class="form-control" type="text" name="name">
+								</div>
+							</div>
+
+							<div class="col-6">
+								<div class="form-group">
+									<label>হোল্ডিং নং</label>
+									<input class="form-control" type="text" name="name">
+								</div>
+							</div>
+
+							<div class="col-6">
+								<div class="form-group">
+									<label>ওয়ার্ড নং</label>
+									<input class="form-control" type="text" name="name">
+								</div>
+							</div>
+
+							<div class="col-6">
+								<div class="form-group">
+									<label> জেলা   </label>
+									<select  class="form-control" name="resident">
+										<option value=""> চিহ্নিত করুন </option>
+									</select>
+								</div>
+							</div>
+
+							<div class="col-6">
+								<div class="form-group">
+									<label> জেলা   </label>
+									<select  class="form-control" name="resident">
+										<option value=""> চিহ্নিত করুন </option>
+									</select>
+								</div>
+							</div>
+
+							<div class="col-6">
+								<div class="form-group">
+									<label> উপজেলা/থানা    </label>
+									<select  class="form-control" name="resident">
+										<option value=""> চিহ্নিত করুন </option>
+									</select>
+								</div>
+							</div>
+
+							<div class="col-6">
+								<div class="form-group">
+									<label> উপজেলা/থানা    </label>
+									<select  class="form-control" name="resident">
+										<option value=""> চিহ্নিত করুন </option>
+									</select>
+								</div>
+							</div>
+
+							<div class="col-6">
+								<div class="form-group">
+									<label>পোষ্ট অফিস </label>
+									<input class="form-control" type="text" name="name">
+								</div>
+							</div>
+
+							<div class="col-6">
+								<div class="form-group">
+									<label>পোষ্ট অফিস </label>
+									<input class="form-control" type="text" name="name">
+								</div>
+							</div>
+						</div> <br>
+						<div class="row">
+						
+							<div class="col-6">
+								<div class="form-group">
+									<label>ভ্যাট আইডি (যদি থাকে)  </label>
+									<input class="form-control" type="text" name="name">
+								</div>
+							</div>
+
+							<div class="col-6">
+								<div class="form-group">
+									<label>ট্যাক্স আইডি (যদি থাকে) </label>
+									<input class="form-control" type="text" name="name">
+								</div>
+							</div>
+
+							<div class="col-6">
+								<div class="form-group">
+									<label>পরিশোধিত মূলধন (লিঃ কোম্পানির ক্ষেত্রে) *</label>
+									<input class="form-control" type="text" name="name">
+								</div>
+							</div>
+							
+							<div class="col-6">
+								<div class="form-group">
+									<label>ব্যবসার ধরন </label>
+									<input class="form-control" type="text" name="name">
+								</div>
+							</div>
 						</div>
 						<div class="row">
-							<p class="textCenter textFontWeight">স্থায়ী ঠিকানা</p>
+							<p class="textCenter textFontWeight">ব্যবসার  ঠিকানা</p>
 
 							<div class="col-6">
 								<div class="form-group">
@@ -866,6 +970,12 @@ window.__mirage2 = {petok:"4c2318d287415bc4f4b492037d851f3a18a84d40-1644989489-1
 								</div>
 							</div>
 
+							<div class="col-6">
+								<div class="form-group">
+									<label>ফোন (যদি থাকে)</label>
+									<input class="form-control" type="text" name="name">
+								</div>
+							</div>
 						</div><br>
 						<div class="row">
 							<div class="col-3">
@@ -1038,5 +1148,6 @@ window.__mirage2 = {petok:"4c2318d287415bc4f4b492037d851f3a18a84d40-1644989489-1
 		<script src="assets/js/ajaxchimp.min.js"></script>
         <!-- Custom JS -->
 		<script src="assets/js/custom.js"></script>
+		<script src="assets/js/license.js"></script>
     </body>
 </html>
