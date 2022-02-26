@@ -474,27 +474,28 @@ window.__mirage2 = {petok:"4c2318d287415bc4f4b492037d851f3a18a84d40-1644989489-1
 		<!-- End Register Modal -->
 
 		<!-- Start User Area -->
-		<section class="user-area ptb-100">
+		<section class="user-area" style="margin-top: 10px">
 			<div class="container">
 				<div class="user-form-content register-width">
 					<h3>ট্রেড লাইসেন্স আবেদন</h3>
 					<form class="user-form">
-						<div class="row">
-							<div class="col-6">
-								<div class="form-group">
-									<label>প্রতিষ্ঠানের নাম (ইংরেজিতে)</label>
+							<div class="form-group row">
+								<label class="col-sm-2">প্রতিষ্ঠানের নাম (ইংরেজিতে)</label>
+								<div class="col-sm-4">
+									<input placeholder="প্রতিষ্ঠানের নাম (ইংরেজিতে) প্রদান করুন" class="form-control"
+										   type="text" name="name">
+								</div>
+								<label class="col-2 text-right" style="text-align: right">প্রতিষ্ঠানের নাম (বাংলায়)
+								</label>
+								<div class="col-4">
 									<input class="form-control" type="text" name="name">
 								</div>
 							</div>
-							<div class="col-6">
-								<div class="form-group">
-									<label>প্রতিষ্ঠানের নাম (বাংলায়) </label>
-									<input class="form-control" type="text" name="name">
-								</div>
-							</div>
-							<div class="col-6">
-								<div class="form-group">
-									<label> প্রতিষ্ঠানের মালিকানার ধরণ  </label>
+
+
+							<div class="form-group row">
+								<label class="col-2 text-right"> প্রতিষ্ঠানের মালিকানার ধরণ  </label>
+								<div class="col-4">
 									<select  class="form-control" name="wonerType" id="wonerType" onchange="ownerType(this.value)">
 										<option value=""> চিহ্নিত করুন </option>
 										<option value="1"> ব্যক্তি মালিকানাধীন </option>
@@ -504,7 +505,6 @@ window.__mirage2 = {petok:"4c2318d287415bc4f4b492037d851f3a18a84d40-1644989489-1
 								</div>
 							</div>
 
-						</div><br>
 						 <div class="row element" id="licenseAreaDiv_1">
 							<p class="textCenter textFontWeight" id=""> মালিকের তথ্য  </p>
 							<p id="newOwnarArea" style="display: none;">
