@@ -474,92 +474,72 @@ window.__mirage2 = {petok:"4c2318d287415bc4f4b492037d851f3a18a84d40-1644989489-1
 		<!-- End Register Modal -->
 
 		<!-- Start User Area -->
-		<section class="user-area ptb-100">
+		<section class="user-area" style="margin-top: 10px">
 			<div class="container">
 				<div class="user-form-content register-width">
 					<h3>নাগরিক আবেদন</h3>
 
 					<form class="user-form">
-						<div class="row">
-							<div class="col-6">
-								<div class="form-group">
-									<label>নাম (ইংরেজিতে)</label>
-									<input class="form-control" type="text" name="name">
+						<div class="tab">
+							<div class="form-group row">
+								<label class="col-2  textRight">নাম (ইংরেজিতে)</label>
+								<div class="col-4">
+									<input class="form-control" type="text" name="name" id="nameEN_1" placeholder="নাম (ইংরেজিতে)">
+								</div>
+								<label class="col-2 textRight">নাম (বাংলায়)</label>
+								<div class="col-4">
+									<input class="form-control" type="text" name="name" id="nameBN_1" placeholder="নাম (বাংলায়)">
 								</div>
 							</div>
-							<div class="col-6">
-								<div class="form-group">
-									<label>নাম (বাংলায়)</label>
-									<input class="form-control" type="text" name="name">
+							<div class="form-group row">
+								<label class="col-2  textRight">ন্যাশনাল আইডি (ইংরেজিতে)</label>
+								<div class="col-4">
+									<input class="form-control" type="text" name="nid" placeholder="ন্যাশনাল আইডি (ইংরেজিতে)">
+								</div>
+								<label class="col-2  textRight">জন্ম নিবন্ধন নং (ইংরেজিতে)</label>
+								<div class="col-4">
+									<input class="form-control" type="text" name="dobno" placeholder="জন্ম নিবন্ধন নং (ইংরেজিতে)">
 								</div>
 							</div>
-
-							<div class="col-6">
-								<div class="form-group">
-									<label>ন্যাশনাল আইডি (ইংরেজিতে)</label>
-									<input class="form-control" type="text" name="nid">
+							<div class="form-group row ">
+								<label class="col-2  textRight">পাসপোর্ট নং (ইংরেজিতে)</label>
+								<div class="col-4">
+									<input class="form-control" type="text" name="passwort" placeholder="পাসপোর্ট নং (ইংরেজিতে)">
 								</div>
-							</div>
-
-							<div class="col-6">
-								<div class="form-group">
-									<label>জন্ম নিবন্ধন নং (ইংরেজিতে)</label>
-									<input class="form-control" type="text" name="dobno">
-								</div>
-							</div>
-
-							<div class="col-6">
-								<div class="form-group">
-									<label>পাসপোর্ট নং (ইংরেজিতে)</label>
-									<input class="form-control" type="text" name="passwort">
-								</div>
-							</div>
-
-							<div class="col-6">
-								<div class="form-group">
-									<label>জম্ম তারিখ  </label>
+								<label class="col-2  textRight">জম্ম তারিখ  </label>
+								<div class="col-4">
 									<input class="form-control" type="date" name="dob">
 								</div>
 							</div>
 
-						    <div class="col-6">
-								<div class="form-group">
-									<label>পিতার নাম (ইংরেজিতে)</label>
-									<input class="form-control" type="text" name="name">
+						    <div class="form-group  row ">
+								<label class="col-2  textRight">পিতার নাম (ইংরেজিতে)</label>
+								<div class="col-4">
+									<input class="form-control" type="text" name="name" placeholder="পিতার নাম (ইংরেজিতে)">
+								</div>
+								<label class="col-2  textRight"> পিতার নাম (বাংলায়)</label>
+								<div  class="col-4">
+									<input class="form-control" type="text" name="name" placeholder="পিতার নাম (বাংলায়)">
 								</div>
 							</div>
 
-							<div class="col-6">
-								<div class="form-group">
-									<label>পিতার নাম (বাংলায়)</label>
-									<input class="form-control" type="text" name="name">
+							<div class="form-group row">
+								<label class="col-2  textRight">মাতার নাম (ইংরেজিতে)</label>
+								<div class="col-4">
+									<input class="form-control" type="text" name="name" placeholder="মাতার নাম (ইংরেজিতে)">
+								</div>
+								<label class="col-2  textRight">মাতার নাম (বাংলায়)</label>
+								<div class="col-4">
+									<input class="form-control" type="text" name="name" placeholder="মাতার নাম (বাংলায়)">
 								</div>
 							</div>
-
-							<div class="col-6">
-								<div class="form-group">
-									<label>মাতার নাম (ইংরেজিতে)</label>
-									<input class="form-control" type="text" name="name">
+							<div class="form-group row">
+								<label class="col-2  textRight">পেশা</label>
+								<div class="col-4">
+									<input class="form-control" type="text" name="name" placeholder="পেশা">
 								</div>
-							</div>
-
-							<div class="col-6">
-								<div class="form-group">
-									<label>মাতার নাম (বাংলায়)</label>
-									<input class="form-control" type="text" name="name">
-								</div>
-							</div>
-
-							<div class="col-6">
-								<div class="form-group">
-									<label>পেশা</label>
-									<input class="form-control" type="text" name="name">
-								</div>
-							</div>
-
-							<div class="col-6">
-								<div class="form-group">
-									<label> বাসিন্দা  </label>
+								<label class="col-2  textRight">বাসিন্দা</label>
+								<div class="col-4">
 									<select  class="form-control" name="resident">
 										<option value=""> চিহ্নিত করুন </option>
 										<option value="1" > অস্থায়ী </option>
@@ -567,17 +547,13 @@ window.__mirage2 = {petok:"4c2318d287415bc4f4b492037d851f3a18a84d40-1644989489-1
 									</select>
 								</div>
 							</div>
-
-							<div class="col-6">
-								<div class="form-group">
-									<label>শিক্ষাগত যোগ্যতা</label>
-									<input class="form-control" type="text" name="name">
+							<div class="form-group row">
+								<label class="col-2  textRight">শিক্ষাগত যোগ্যতা</label>
+								<div class="col-4">
+									<input class="form-control" type="text" name="name" placeholder="শিক্ষাগত যোগ্যতা">
 								</div>
-							</div>
-
-							<div class="col-6">
-								<div class="form-group">
-									<label> ধর্ম   </label>
+								<label class="col-2  textRight">ধর্ম</label>
+								<div class="col-4">
 									<select  class="form-control" name="resident">
 										<option value=""> চিহ্নিত করুন </option>
 										<option value='1' >ইসলাম</option>
@@ -586,21 +562,17 @@ window.__mirage2 = {petok:"4c2318d287415bc4f4b492037d851f3a18a84d40-1644989489-1
                                         <option value='4' >খ্রিস্ট ধর্ম</option>
                                         <option value='5' >অন্যান্য</option>
 									</select>
-								</div>
+							    </div>
 							</div>
-
-							<div class="col-6">
-								<div class="form-group">
-									<label>লিঙ্গ </label><br>
+							<div class="form-group row">
+								<label class="col-2  textRight">লিঙ্গ</label>
+								<div class="col-4">
 									<label class="radio-inline gender"><input type="radio" id="gender_1" name="gender" value="1"  /><span class="wrap">&nbsp; পুরুষ &nbsp;</span></label>
 									<label class="radio-inline gender"><input type="radio" id="gender_2" name="gender" value="2"  /><span class="wrap">&nbsp; মহিলা &nbsp;</span></label>
 									<label class="radio-inline gender"><input type="radio" id="gender_3" name="gender" value="3"  /><span class="wrap">&nbsp; অন্যান্য</span></label>
 								</div>
-							</div>
-
-							<div class="col-6">
-								<div class="form-group">
-									<label> বৈবাহিক সম্পর্ক </label>
+								<label class="col-2  textRight">বৈবাহিক সম্পর্ক</label>
+								<div class="col-4">
 									<select  class="form-control" name="resident">
 										<option value=""> চিহ্নিত করুন </option>
 										<option value='1' >অবিবাহিত</option>
@@ -611,231 +583,181 @@ window.__mirage2 = {petok:"4c2318d287415bc4f4b492037d851f3a18a84d40-1644989489-1
 									</select>
 								</div>
 							</div>
-						</div>
-						<div class="row">
 							<p class="textCenter textFontWeight">বর্তমান  ঠিকানা</p>
-
-							<div class="col-6">
-								<div class="form-group">
-									<label>গ্রাম/মহল্লা (ইংরেজিতে)</label>
-									<input class="form-control" type="text" name="name">
+							<div class="form-group row">
+								<label class="col-2  textRight">গ্রাম/মহল্লা (ইংরেজিতে)</label>
+								<div class="col-4">
+									<input class="form-control" type="text" name="present_village_mahalla_en" id="present_village_mahalla_en" placeholder="গ্রাম/মহল্লা (ইংরেজিতে)">
+								</div>
+								<label class="col-2  textRight"> গ্রাম/মহল্লা (বাংলায়) </label>
+								<div class="col-4">
+									<input class="form-control" type="text" name="present_village_mahalla_bn" id="present_village_mahalla_bn" placeholder="গ্রাম/মহল্লা (বাংলায়) ">
 								</div>
 							</div>
-
-							<div class="col-6">
-								<div class="form-group">
-									<label>গ্রাম/মহল্লা (বাংলায়) </label>
-									<input class="form-control" type="text" name="name">
+							<div class="form-group row">
+								<label class="col-2  textRight">রোড/ব্লক/সেক্টর (ইংরেজিতে)</label>
+								<div class="col-4">
+									<input class="form-control" type="text" name="name" id="present_road_block_sector_en" placeholder="রোড/ব্লক/সেক্টর (ইংরেজিতে)">
+								</div>
+								<label class="col-2  textRight">রোড/ব্লক/সেক্টর (বাংলায়)</label>
+								<div class="col-4">
+									<input class="form-control" type="text" name="name" id="present_road_block_sector_bn" placeholder="রোড/ব্লক/সেক্টর (বাংলায়)">
 								</div>
 							</div>
-
-							<div class="col-6">
-								<div class="form-group">
-									<label>রোড/ব্লক/সেক্টর (ইংরেজিতে)</label>
-									<input class="form-control" type="text" name="name">
+							<div class="form-group row">
+								<label  class="col-2  textRight">হোল্ডিং নং</label>
+								<div class="col-4">
+									<input class="form-control" type="text" name="name" id="present_holding" placeholder="হোল্ডিং নং">
+								</div>
+								<label  class="col-2  textRight">ওয়ার্ড নং</label>
+								<div class="col-4">
+									<input class="form-control" type="text" name="name" id="present_ward" placeholder="ওয়ার্ড নং"> 
 								</div>
 							</div>
-
-							<div class="col-6">
-								<div class="form-group">
-									<label>রোড/ব্লক/সেক্টর (বাংলায়)</label>
-									<input class="form-control" type="text" name="name">
+							<div class="form-group row">
+								<label class="col-2  textRight"> জেলা (ইংরেজিতে)  </label>
+								<div class="col-4">
+									<select  class="form-control" name="resident" id="present_district_en">
+										<option value=""> চিহ্নিত করুন </option>
+									</select>
 								</div>
-							</div>
-
-							<div class="col-6">
-								<div class="form-group">
-									<label>হোল্ডিং নং</label>
-									<input class="form-control" type="text" name="name">
-								</div>
-							</div>
-
-							<div class="col-6">
-								<div class="form-group">
-									<label>ওয়ার্ড নং</label>
-									<input class="form-control" type="text" name="name">
-								</div>
-							</div>
-
-							<div class="col-6">
-								<div class="form-group">
-									<label> জেলা   </label>
-									<select  class="form-control" name="resident">
+								<label class="col-2  textRight"> জেলা (বাংলায়)   </label>
+								<div class="col-4">
+									<select  class="form-control" name="resident" id="present_district_bn">
 										<option value=""> চিহ্নিত করুন </option>
 									</select>
 								</div>
 							</div>
-
-							<div class="col-6">
-								<div class="form-group">
-									<label> জেলা   </label>
-									<select  class="form-control" name="resident">
+							<div class="form-group row">
+								<label class="col-2  textRight"> উপজেলা/থানা    </label>
+								<div class="col-4">
+									<select  class="form-control" name="resident" id="present_upazila_thana_en">
+										<option value=""> চিহ্নিত করুন </option>
+									</select>
+								</div>
+								<label  class="col-2  textRight"> উপজেলা/থানা    </label>
+								<div class="col-4">
+									<select  class="form-control" name="resident" id="present_upazila_thana_bn">
 										<option value=""> চিহ্নিত করুন </option>
 									</select>
 								</div>
 							</div>
-
-							<div class="col-6">
-								<div class="form-group">
-									<label> উপজেলা/থানা    </label>
-									<select  class="form-control" name="resident">
-										<option value=""> চিহ্নিত করুন </option>
-									</select>
+							<div class="form-group row">
+								<label  class="col-2  textRight"> পোষ্ট অফিস  (বাংলায়)  </label>
+								<div class="col-4">
+									<input class="form-control" type="text" name="name" id="present_post_office_bn" placeholder="পোষ্ট অফিস  (বাংলায়) "/>
+								</div>
+								<label  class="col-2  textRight"> পোষ্ট অফিস (ইংরেজিতে) </label>
+								<div class="col-4">
+									<input class="form-control" type="text" name="name" id="present_post_office_en" placeholder="জেলা (ইংরেজিতে)"/>
 								</div>
 							</div>
-
-							<div class="col-6">
-								<div class="form-group">
-									<label> উপজেলা/থানা    </label>
-									<select  class="form-control" name="resident">
-										<option value=""> চিহ্নিত করুন </option>
-									</select>
-								</div>
-							</div>
-
-							<div class="col-6">
-								<div class="form-group">
-									<label>পোষ্ট অফিস </label>
-									<input class="form-control" type="text" name="name">
-								</div>
-							</div>
-
-							<div class="col-6">
-								<div class="form-group">
-									<label>পোষ্ট অফিস </label>
-									<input class="form-control" type="text" name="name">
-								</div>
-							</div>
-						</div>
-						<div class="row">
 							<p class="textCenter textFontWeight">স্থায়ী ঠিকানা</p>
-
-							<div class="col-6">
-								<div class="form-group">
-									<label>গ্রাম/মহল্লা (ইংরেজিতে)</label>
-									<input class="form-control" type="text" name="name">
+							<div class="form-group row">
+								<div class="col-2"></div>
+								<div class="col-1"><input  id="checkboxId" type="checkbox"></div>
+								<label class="col-2">  ঠিকানা একই হলে টিক দিন </label>
+							</div>
+							<div class="form-group row">
+								<label class="col-2  textRight">গ্রাম/মহল্লা (ইংরেজিতে)</label>
+								<div class="col-4">
+									<input class="form-control" type="text" name="name" id="permanent_village_mahalla_en" placeholder="গ্রাম/মহল্লা (ইংরেজিতে)">
+								</div>
+								<label class="col-2  textRight"> গ্রাম/মহল্লা (বাংলায়) </label>
+								<div class="col-4">
+									<input class="form-control" type="text" name="name" id="permanent_village_mahalla_bn" placeholder="গ্রাম/মহল্লা (বাংলায়) ">
 								</div>
 							</div>
-
-							<div class="col-6">
-								<div class="form-group">
-									<label>গ্রাম/মহল্লা (বাংলায়) </label>
-									<input class="form-control" type="text" name="name">
+							<div class="form-group row">
+								<label class="col-2  textRight">রোড/ব্লক/সেক্টর (ইংরেজিতে)</label>
+								<div class="col-4">
+									<input class="form-control" type="text" name="name" id="permanent_road_block_sector_en" placeholder="রোড/ব্লক/সেক্টর (ইংরেজিতে)">
+								</div>
+								<label class="col-2  textRight">রোড/ব্লক/সেক্টর (বাংলায়)</label>
+								<div class="col-4">
+									<input class="form-control" type="text" name="name" id="permanent_road_block_sector_bn" placeholder="রোড/ব্লক/সেক্টর (বাংলায়)">
 								</div>
 							</div>
-
-							<div class="col-6">
-								<div class="form-group">
-									<label>রোড/ব্লক/সেক্টর (ইংরেজিতে)</label>
-									<input class="form-control" type="text" name="name">
+							<div class="form-group row">
+								<label  class="col-2  textRight">হোল্ডিং নং</label>
+								<div class="col-4">
+									<input class="form-control" type="text" name="name" id="permanent_holding" placeholder="হোল্ডিং নং">
+								</div>
+								<label  class="col-2  textRight">ওয়ার্ড নং</label>
+								<div class="col-4">
+									<input class="form-control" type="text" name="name" id="permanent_ward" placeholder="ওয়ার্ড নং"> 
 								</div>
 							</div>
-
-							<div class="col-6">
-								<div class="form-group">
-									<label>রোড/ব্লক/সেক্টর (বাংলায়)</label>
-									<input class="form-control" type="text" name="name">
+							<div class="form-group row">
+								<label class="col-2  textRight"> জেলা (ইংরেজিতে)  </label>
+								<div class="col-4">
+									<select  class="form-control" name="resident" id="permanent_district_en">
+										<option value=""> চিহ্নিত করুন </option>
+									</select>
 								</div>
-							</div>
-
-							<div class="col-6">
-								<div class="form-group">
-									<label>হোল্ডিং নং</label>
-									<input class="form-control" type="text" name="name">
-								</div>
-							</div>
-
-							<div class="col-6">
-								<div class="form-group">
-									<label>ওয়ার্ড নং</label>
-									<input class="form-control" type="text" name="name">
-								</div>
-							</div>
-
-							<div class="col-6">
-								<div class="form-group">
-									<label> জেলা   </label>
-									<select  class="form-control" name="resident">
+								<label class="col-2  textRight"> জেলা (বাংলায়)   </label>
+								<div class="col-4">
+									<select  class="form-control" name="resident" id="permanent_district_bn">
 										<option value=""> চিহ্নিত করুন </option>
 									</select>
 								</div>
 							</div>
-
-							<div class="col-6">
-								<div class="form-group">
-									<label> জেলা   </label>
-									<select  class="form-control" name="resident">
+							<div class="form-group row">
+								<label class="col-2  textRight"> উপজেলা/থানা    </label>
+								<div class="col-4">
+									<select  class="form-control" name="resident" id="permanent_upazila_thana_en">
+										<option value=""> চিহ্নিত করুন </option>
+									</select>
+								</div>
+								<label  class="col-2  textRight"> উপজেলা/থানা    </label>
+								<div class="col-4">
+									<select  class="form-control" name="resident" id="permanent_upazila_thana_bn">
 										<option value=""> চিহ্নিত করুন </option>
 									</select>
 								</div>
 							</div>
-
-							<div class="col-6">
-								<div class="form-group">
-									<label> উপজেলা/থানা    </label>
-									<select  class="form-control" name="resident">
-										<option value=""> চিহ্নিত করুন </option>
-									</select>
+							<div class="form-group row">
+								<label  class="col-2  textRight"> পোষ্ট অফিস  (বাংলায়)  </label>
+								<div class="col-4">
+									<input class="form-control" type="text" name="name" id="permanent_post_office_bn" placeholder="পোষ্ট অফিস  (বাংলায়) "/>
 								</div>
-							</div>
-
-							<div class="col-6">
-								<div class="form-group">
-									<label> উপজেলা/থানা    </label>
-									<select  class="form-control" name="resident">
-										<option value=""> চিহ্নিত করুন </option>
-									</select>
-								</div>
-							</div>
-
-							<div class="col-6">
-								<div class="form-group">
-									<label>পোষ্ট অফিস </label>
-									<input class="form-control" type="text" name="name">
-								</div>
-							</div>
-
-							<div class="col-6">
-								<div class="form-group">
-									<label>পোষ্ট অফিস </label>
-									<input class="form-control" type="text" name="name">
+								<label  class="col-2  textRight"> পোষ্ট অফিস (ইংরেজিতে) </label>
+								<div class="col-4">
+									<input class="form-control" type="text" name="name" id="permanent_post_office_bn" placeholder="জেলা (ইংরেজিতে)"/>
 								</div>
 							</div>
 						</div>
-						<div class="row">
+						<div class="tab">
 							<p class="textCenter textFontWeight">যোগাযোগের ঠিকানা</p>
-
-							<div class="col-6">
-								<div class="form-group">
-									<label>মোবাইল  </label>
-									<input class="form-control" type="text" name="name">
+							<div class="form-group row">
+								<label class="col-2 text-right"> মোবাইল  </label>
+								<div class="col-4">
+									<input class="form-control" type="text" name="name" placeholder="মোবাইল">
+								</div>
+								<label class="col-2 text-right"> ইমেল  </label>
+								<div class="col-4">
+									<input class="form-control" type="text" name="name" placeholder="ইমেল">
 								</div>
 							</div>
-
-							<div class="col-6">
-								<div class="form-group">
-									<label>ইমেল </label>
-									<input class="form-control" type="text" name="name">
+							<div class="form-group row ">
+								<label class="col-2 text-right"> মন্তব্য দিন(ইংরেজিতে)  </label>
+								<div class="col-4">
+									<textarea rows="4" class="form-control" placeholder="মন্তব্য দিন(ইংরেজিতে)"></textarea>
+								</div>
+								<label class="col-2 text-right">মন্তব্য দিন (বাংলায়)  </label>
+								<div class="col-4">
+									<textarea rows="4" class="form-control" placeholder="মন্তব্য দিন(বাংলায়)"></textarea>
 								</div>
 							</div>
-
-							<div class="col-6">
-								<div class="form-group">
-									<label>মন্তব্য দিন(ইংরেজিতে)  </label>
-									<textarea rows="4" class="form-control"></textarea>
+							<div class="form-group row ">
+								<div class="col-2"></div>
+								<div class="col-4">
+									<input class="form-control" type="file" name="name">
 								</div>
+								<div class="col-3">
+									<img src="" class="profilePicture"/>
+								</div>	
 							</div>
-							<div class="col-6">
-								<div class="form-group">
-									<label>মন্তব্য দিন (বাংলায়)  </label>
-									<textarea  rows="4" class="form-control"></textarea>
-								</div>
-							</div>
-							<div class="col-4"><input class="form-control" type="file" name="name"></div>
-							<div class="col-3">
-								<img src="" class="profilePicture"/>
-							</div>	
-
 						</div><br>
 						<div class="row">
 							<div class="col-3">
