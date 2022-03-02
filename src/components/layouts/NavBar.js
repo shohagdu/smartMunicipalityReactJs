@@ -48,7 +48,7 @@ export default function NavBar(){
 												<Link to={"citizen" }className="nav-link">নাগরিক আবেদন </Link>
 											</li>
                                             <li className="nav-item">
-												<a href="tradelicense.html" className="nav-link">ট্রেড লাইসেন্স আবেদন</a>
+												<Link to={"tradelicense"} className="nav-link">ট্রেড লাইসেন্স আবেদন</Link>
 											</li>
 											
                                             <li className="nav-item">
@@ -140,35 +140,6 @@ export default function NavBar(){
 										<a href="contact.html" className="nav-link">যোগাযোগ</a>
 									</li>
                                 </ul>
-
-                                <div className="others-options">
-									<ul>
-										<li>
-											<div className="option-item">
-												<i className="search-btn ri-search-line"></i>
-												<i className="close-btn ri-close-line"></i>
-												
-												<div className="search-overlay search-popup">
-													<div className='search-box'>
-														<form className="search-form">
-															<input className="search-input" name="search" placeholder="Search" type="text" />
-			
-															<button className="search-button" type="submit">
-																<i className="ri-search-line"></i>
-															</button>
-														</form>
-													</div>
-												</div>
-											</div>
-										</li>
-										<li>
-											<a href="tel:+1-(514)-312-5678" className="call">
-												<i className="ri-phone-fill"></i>
-												+1 (514) 312-5678
-											</a>
-										</li>
-									</ul>
-                                </div> 
                             </div>
                         </nav>
                     </div>

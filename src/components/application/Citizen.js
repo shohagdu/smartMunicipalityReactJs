@@ -2,54 +2,178 @@ import Form from "../Form";
 import FormGroupRow from "../FormGroupRow";
 import FormLabel from "../FormLabel";
 import InputText from "../InputText";
+import InputRow from "../InputRow";
 import SelectOption from "../SelectOption";
 import CheckboxInput from "../CheckboxInput";
 import TextareaInput from "../TextareaInput";
 import ButtonTag from "../ButtonTag";
+import { useState } from "react";
 
 export default function Citizen(){
+
+    const [nameBn, setNameBn] = useState('');
+    const [nameEn, setNameEn] = useState('');
+    const [bith_no, setbith_no] = useState('');
+    const [national_id, setnational_id] = useState('');
+    const [passport, setpassport] = useState('');
+    const [date, setdate] = useState('');
+    const [father_name_en, setfather_name_en] = useState('');
+    const [father_name_bn, setfather_name_bn] = useState('');
+    const [mother_name_en, setmother_name_en] = useState('');
+    const [mother_name_bn, setmother_name_bn] = useState('');
+    const [occation, setoccation] = useState('');
+    const [resident, setresident] = useState('');
+    const [religion, setreligion] = useState('');
+    const [education, seteducation] = useState('');
+    const [gender, setgender] = useState('');
+    const [marital_status, setmarital_status] = useState('');
+
+    const [permanent_village_mahalla_en, setpermanent_village_mahalla_en] = useState('');
+    const [permanent_village_mahalla_bn, setpermanent_village_mahalla_bn] = useState('');
+    const [permanent_road_block_sector_en, setpermanent_road_block_sector_en] = useState('');
+    const [permanent_road_block_sector_bn, setpermanent_road_block_sector_bn] = useState('');
+    const [permanent_holding, setpermanent_holding] = useState('');
+    const [permanent_ward, setpermanent_ward] = useState('');
+    const [permanent_district_en, setpermanent_district_en] = useState('');
+    const [permanent_district_bn, setpermanent_district_bn] = useState('');
+    const [permanent_upazila_thana_en, setpermanent_upazila_thana_en] = useState('');
+    const [permanent_upazila_thana_bn, setpermanent_upazila_thana_bn] = useState('');
+    const [permanent_post_office_bn, setpermanent_post_office_bn] = useState('');
+    const [permanent_post_office_en, setpermanent_post_office_en] = useState('');
+
+    const [present_village_mahalla_en, setpresent_village_mahalla_en] = useState('');
+    const [present_village_mahalla_bn, setpresent_village_mahalla_bn] = useState('');
+    const [present_road_block_sector_en, setpresent_road_block_sector_en] = useState('');
+    const [present_road_block_sector_bn, setpresent_road_block_sector_bn] = useState('');
+    const [present_holding, setpresent_holding] = useState('');
+    const [present_ward, setpresent_ward] = useState('');
+    const [present_district_en, setpresent_district_en] = useState('');
+    const [present_district_bn, setpresent_district_bn] = useState('');
+    const [present_upazila_thana_en, setpresent_upazila_thana_en] = useState('');
+    const [present_upazila_thana_bn, setpresent_upazila_thana_bn] = useState('');
+    const [present_post_office_bn, setpresent_post_office_bn] = useState('');
+    const [present_post_office_en, setpresent_post_office_en] = useState('');
+    const [mobile, setmobile] = useState('');
+    const [email, setemail] = useState('');
+    const [comment_en, setcomment_en] = useState('');
+    const [comment_bn, setcomment_bn] = useState('');
+
+    const submitFormData = (e) => {
+        e.preventDefault();
+        
+        const citizenInfo = {
+            nameBn: nameBn,
+            nameEn: nameEn,
+            national_id: national_id,
+            bith_no: bith_no,
+            passport: passport,
+            date: date,
+            father_name_en: father_name_en,
+            father_name_bn: father_name_bn,
+            mother_name_en: mother_name_en,
+            mother_name_bn: mother_name_bn,
+            occation: occation,
+            resident: resident,
+            religion: religion,
+            education: education,
+            gender: gender,
+            marital_status: marital_status,
+            permanent_village_mahalla_en:permanent_village_mahalla_en,
+            permanent_village_mahalla_bn:permanent_village_mahalla_bn,
+            permanent_road_block_sector_en:permanent_road_block_sector_en,
+            permanent_road_block_sector_bn:permanent_road_block_sector_bn,
+            permanent_holding:permanent_holding,
+            permanent_ward:permanent_ward,
+            permanent_district_en:permanent_district_en,
+            permanent_district_bn:permanent_district_bn,
+            permanent_upazila_thana_en:permanent_upazila_thana_en,
+            permanent_upazila_thana_bn:permanent_upazila_thana_bn,
+            permanent_post_office_bn:permanent_post_office_bn,
+            permanent_post_office_en:permanent_post_office_en,
+
+            present_village_mahalla_en:present_village_mahalla_en,
+            present_village_mahalla_bn:present_village_mahalla_bn,
+            present_road_block_sector_en:present_road_block_sector_en,
+            present_road_block_sector_bn:present_road_block_sector_bn,
+            present_holding:present_holding,
+            present_ward:present_ward,
+            present_district_en:present_district_en,
+            present_district_bn:present_district_bn,
+            present_upazila_thana_en:present_upazila_thana_en,
+            present_upazila_thana_bn:present_upazila_thana_bn,
+            present_post_office_bn:present_post_office_bn,
+            present_post_office_en:present_post_office_en,
+            mobile: mobile,
+            email: email,
+            comment_en: comment_en,
+            comment_bn: comment_bn,
+        }
+
+        console.log(citizenInfo);
+
+      };
+
     return (
         <>
         <section className="user-area" style={{marginTop: '10px'}}>
 			<div className="container">
 				<div className="user-form-content register-width">
                     <h3>নাগরিক আবেদন</h3>
-                     <Form >
+                     <Form onSubmit={submitFormData}>
+                            <div className="row">
+                             <div className="col-sm-4 col-md-4 col-12">
+                             <span className="TextBold" style={{color:"red"}}> নিয়মাবলি : </span>
+                              <ul>
+                                  <li> প্রথমে একাউন্ট তৈরী করুন , আর একাউন্ট করা তৈরী থাকলে  লগইন করুন ।</li>
+                                  <li> বাংলায় সার্টিফিকেট পেতে শুধুমাত্র বাংলায় ঘর গুলো পূরন করুন ।</li>
+                              </ul>
+                             </div>
+                            <div className="col-sm-4 col-md-4 col-12" style={{textAlign:"center"}}>
+                                <span className="TextBold"> সরবরাহের ধরণ  </span><br /><br />
+                                <CheckboxInput name="delivery" value="1"> জরুরী </CheckboxInput>
+                                <CheckboxInput name="delivery" value="2"> অতি জরুরী </CheckboxInput>
+                                <CheckboxInput name="delivery" value="3"> সাধারন </CheckboxInput>
+                            </div>
+                            <div className="col-sm-4 col-md-4 col-12">
+                                <img className="imageStyle floatRight" alt=" default pic"  src="assets/images/404.jpg" /> <br />
+                                <InputRow className=" imageTagInput"  type="file" />
+                            </div>
+                            </div><br />
                             <FormGroupRow>
                                 <FormLabel> নাম (ইংরেজিতে) </FormLabel>
-								<InputText  className="form-control" type="text" name="name_en" id="nameEN" placeholder="নাম (ইংরেজিতে)" />
+								<InputText  className="form-control" type="text" onChange={e => setNameEn(e.target.value)} placeholder="নাম (ইংরেজিতে)" />
                                 <FormLabel> নাম (বাংলায়) </FormLabel>
-								<InputText  className="form-control" type="text" name="name_bn" id="nameBN" placeholder="নাম (বাংলায়)" />
+								<InputText  className="form-control" type="text" onChange={e => setNameBn(e.target.value)} placeholder="নাম (বাংলায়)" />
                             </FormGroupRow>
                             <FormGroupRow>
                                 <FormLabel> ন্যাশনাল আইডি (ইংরেজিতে) </FormLabel>
-								<InputText  className="form-control" type="text" name="national_id" id="national_id" placeholder="ন্যাশনাল আইডি (ইংরেজিতে)" />
+								<InputText  className="form-control" type="text" onChange={e => setnational_id(e.target.value)} placeholder="ন্যাশনাল আইডি (ইংরেজিতে)" />
                                 <FormLabel> জন্ম নিবন্ধন নং (ইংরেজিতে) </FormLabel>
-								<InputText  className="form-control" type="text" name="bith_no" id="bith_no" placeholder="জন্ম নিবন্ধন নং (ইংরেজিতে)" />
+								<InputText  className="form-control" type="text" onChange={e => setbith_no(e.target.value)}  placeholder="জন্ম নিবন্ধন নং (ইংরেজিতে)" />
                             </FormGroupRow>
                             <FormGroupRow>
                                 <FormLabel> পাসপোর্ট নং (ইংরেজিতে)</FormLabel>
-								<InputText  className="form-control" type="text" name="passport" id="passport" placeholder="পাসপোর্ট নং (ইংরেজিতে)" />
+								<InputText  className="form-control" type="text" onChange={e => setpassport(e.target.value)}  placeholder="পাসপোর্ট নং (ইংরেজিতে)" />
                                 <FormLabel> জম্ম তারিখ </FormLabel>
-								<InputText  className="form-control" type="date" name="dob" id="dob" placeholder="নাম (বাংলায়)" />
+								<InputText  className="form-control" type="date" onChange={e => setdate(e.target.value)}  placeholder="নাম (বাংলায়)" />
                             </FormGroupRow>
                             <FormGroupRow>
                                 <FormLabel> পিতার নাম (ইংরেজিতে) </FormLabel>
-								<InputText  className="form-control" type="text" name="father_name_en" id="father_name_en" placeholder="পিতার নাম (ইংরেজিতে)" />
+								<InputText  className="form-control" type="text" onChange={e => setfather_name_en(e.target.value)}   placeholder="পিতার নাম (ইংরেজিতে)" />
                                 <FormLabel> পিতার নাম (বাংলায়) </FormLabel>
-								<InputText  className="form-control" type="text" name="father_name_bn" id="father_name_bn" placeholder="পিতার নাম (বাংলায়)" />
+								<InputText  className="form-control" type="text" onChange={e => setfather_name_bn(e.target.value)} name="father_name_bn" id="father_name_bn" placeholder="পিতার নাম (বাংলায়)" />
                             </FormGroupRow>
                             <FormGroupRow>
                                 <FormLabel> মাতার নাম (ইংরেজিতে) </FormLabel>
-								<InputText  className="form-control" type="text" name="mother_name_en" id="mother_name_en" placeholder="মাতার নাম (ইংরেজিতে)" />
+								<InputText  className="form-control" type="text" onChange={e => setmother_name_en(e.target.value)}  placeholder="মাতার নাম (ইংরেজিতে)" />
                                 <FormLabel>মাতার নাম (বাংলায়)</FormLabel>
-								<InputText  className="form-control" type="text" name="mother_name_bn" id="mother_name_bn" placeholder="মাতার নাম (বাংলায়)" />
+								<InputText  className="form-control" type="text" onChange={e => setmother_name_bn(e.target.value)} placeholder="মাতার নাম (বাংলায়)" />
                             </FormGroupRow>
                             <FormGroupRow>
                                 <FormLabel> পেশা </FormLabel>
-                                <InputText  className="form-control" type="text" name="occation" id="occation" placeholder="পেশা" />
+                                <InputText  className="form-control" type="text" onChange={e => setoccation(e.target.value)}  placeholder="পেশা" />
                                 <FormLabel> বাসিন্দা </FormLabel>
-                                <SelectOption name="resident">
+                                <SelectOption name="resident" onChange={e => setresident(e.target.value)}>
                                     <option value="">  চিহ্নিত করুন </option>
                                     <option value="1"> অস্থায়ী </option>
                                     <option value="2"> স্থায়ী </option>
@@ -57,9 +181,9 @@ export default function Citizen(){
                             </FormGroupRow> 
                             <FormGroupRow>
                                 <FormLabel> শিক্ষাগত যোগ্যতা </FormLabel>
-                                <InputText  className="form-control" type="text" name="education" id="education" placeholder="শিক্ষাগত যোগ্যতা" />
+                                <InputText  className="form-control" type="text" onChange={e => seteducation(e.target.value)}  placeholder="শিক্ষাগত যোগ্যতা" />
                                 <FormLabel> ধর্ম </FormLabel>
-                                <SelectOption name="religion">
+                                <SelectOption onChange={e => setreligion(e.target.value)}>
                                         <option value='1' >ইসলাম</option>
                                         <option value='2' >হিন্দু</option>
                                         <option value='3' >বৌদ্ধ ধর্ম</option>
@@ -69,13 +193,13 @@ export default function Citizen(){
                             </FormGroupRow> 
                             <FormGroupRow>
                                 <FormLabel> লিঙ্গ </FormLabel>
-                                <div class="col-4">
-									<CheckboxInput name="gender" value="1"> পুরুষ </CheckboxInput>
-									<CheckboxInput name="gender" value="2"> মহিলা </CheckboxInput>
-									<CheckboxInput name="gender" value="3"> অন্যান্য </CheckboxInput>
+                                <div className="col-4">
+									<CheckboxInput onChange={e => setgender(e.target.value)}  value="1"> পুরুষ </CheckboxInput>
+									<CheckboxInput onChange={e => setgender(e.target.value)}  value="2"> মহিলা </CheckboxInput>
+									<CheckboxInput  onChange={e => setgender(e.target.value)} value="3"> অন্যান্য </CheckboxInput>
 								</div>
                                 <FormLabel> বৈবাহিক সম্পর্ক </FormLabel>
-                                <SelectOption name="religion">
+                                <SelectOption name="marital_status" onChange={e => setmarital_status(e.target.value)}>
                                         <option value=""> চিহ্নিত করুন </option>
 										<option value='1' >অবিবাহিত</option>
 										<option value='2' >বিবাহিত</option>
@@ -87,31 +211,31 @@ export default function Citizen(){
                             <p className="textCenter textFontWeight">বর্তমান  ঠিকানা</p>
                             <FormGroupRow>
                                 <FormLabel> গ্রাম/মহল্লা (ইংরেজিতে) </FormLabel>
-								<InputText  className="form-control" type="text" name="permanent_village_mahalla_en" id="permanent_village_mahalla_en" placeholder="গ্রাম/মহল্লা (ইংরেজিতে)" />
+								<InputText  className="form-control" type="text" onChange={e => setpresent_village_mahalla_en(e.target.value)}   placeholder="গ্রাম/মহল্লা (ইংরেজিতে)" />
                                 <FormLabel> গ্রাম/মহল্লা (বাংলায়) </FormLabel>
-								<InputText  className="form-control" type="text" name="permanent_village_mahalla_bn" id="permanent_village_mahalla_bn" placeholder="গ্রাম/মহল্লা (বাংলায়)" />
+								<InputText  className="form-control" type="text" onChange={e => setpresent_village_mahalla_bn(e.target.value)}  placeholder="গ্রাম/মহল্লা (বাংলায়)" />
                             </FormGroupRow>
                             <FormGroupRow>
                                 <FormLabel> রোড/ব্লক/সেক্টর (ইংরেজিতে) </FormLabel>
-								<InputText  className="form-control" type="text" name="permanent_road_block_sector_en" id="permanent_road_block_sector_en" placeholder="রোড/ব্লক/সেক্টর (ইংরেজিতে)" />
+								<InputText  className="form-control" type="text" onChange={e => setpresent_road_block_sector_en(e.target.value)}  placeholder="রোড/ব্লক/সেক্টর (ইংরেজিতে)" />
                                 <FormLabel> রোড/ব্লক/সেক্টর (বাংলায়) </FormLabel>
-								<InputText  className="form-control" type="text" name="permanent_road_block_sector_bn" id="permanent_road_block_sector_bn" placeholder="রোড/ব্লক/সেক্টর (বাংলায়)" />
+								<InputText  className="form-control" type="text" onChange={e => setpresent_road_block_sector_bn(e.target.value)} n placeholder="রোড/ব্লক/সেক্টর (বাংলায়)" />
                             </FormGroupRow>
                             <FormGroupRow>
                                 <FormLabel> হোল্ডিং নং </FormLabel>
-								<InputText  className="form-control" type="text" name="permanent_holding" id="permanent_holding" placeholder="হোল্ডিং নং" />
+								<InputText  className="form-control" type="text" onChange={e => setpresent_holding(e.target.value)}  placeholder="হোল্ডিং নং" />
                                 <FormLabel> ওয়ার্ড নং </FormLabel>
-								<InputText  className="form-control" type="text" name="permanent_ward" id="permanent_ward" placeholder="ওয়ার্ড নং" />
+								<InputText  className="form-control" type="text" onChange={e => setpresent_ward(e.target.value)}  placeholder="ওয়ার্ড নং" />
                             </FormGroupRow>
                             <FormGroupRow>
                                 <FormLabel> জেলা (ইংরেজিতে) </FormLabel>
-                                <SelectOption name="permanent_district_en">
+                                <SelectOption  onChange={e => setpresent_district_en(e.target.value)}>
                                     <option value=""> চিহ্নিত করুন </option>
                                     <option value=""> Dhaka </option>
                                     <option value=""> Feni </option>
                                 </SelectOption>
                                 <FormLabel> জেলা (বাংলায়) </FormLabel>
-                                <SelectOption name="permanent_district_bn">
+                                <SelectOption  onChange={e => setpresent_district_bn(e.target.value)}>
                                     <option value=""> চিহ্নিত করুন </option>
                                     <option value=""> ঢাকা </option>
                                     <option value=""> ফেনী </option>
@@ -119,13 +243,13 @@ export default function Citizen(){
                             </FormGroupRow>
                             <FormGroupRow>
                                 <FormLabel> উপজেলা/থানা   </FormLabel>
-                                <SelectOption name="permanent_upazila_thana_en">
+                                <SelectOption  onChange={e => setpresent_upazila_thana_en(e.target.value)}>
                                     <option value=""> চিহ্নিত করুন </option>
                                     <option value=""> Savar </option>
                                     <option value=""> Feni Sadar </option>
                                 </SelectOption>
                                 <FormLabel> উপজেলা/থানা   (বাংলায়) </FormLabel>
-                                <SelectOption name="permanent_upazila_thana_bn">
+                                <SelectOption  onChange={e => setpresent_upazila_thana_bn(e.target.value)}>
                                     <option value=""> চিহ্নিত করুন </option>
                                     <option value=""> সাভার  </option>
                                     <option value=""> ফেনী সদর </option>
@@ -133,38 +257,38 @@ export default function Citizen(){
                             </FormGroupRow>
                             <FormGroupRow>
                                 <FormLabel> পোষ্ট অফিস  (বাংলায়) </FormLabel>
-								<InputText  className="form-control" type="text" name="permanent_post_office_bn" id="permanent_post_office_bn" placeholder="পোষ্ট অফিস  (বাংলায়)" />
+								<InputText  className="form-control" type="text" onChange={e => setpresent_post_office_bn(e.target.value)}  placeholder="পোষ্ট অফিস  (বাংলায়)" />
                                 <FormLabel> পোষ্ট অফিস (ইংরেজিতে) </FormLabel>
-								<InputText  className="form-control" type="text" name="permanent_post_office_bn" id="permanent_post_office_bn" placeholder="পোষ্ট অফিস (ইংরেজিতে)" />
+								<InputText  className="form-control" type="text" onChange={e => setpresent_post_office_en(e.target.value)}  placeholder="পোষ্ট অফিস (ইংরেজিতে)" />
                             </FormGroupRow>
                             <p className="textCenter textFontWeight">স্থায়ী ঠিকানা</p>
                             <FormGroupRow>
                                 <FormLabel> গ্রাম/মহল্লা (ইংরেজিতে) </FormLabel>
-								<InputText  className="form-control" type="text" name="permanent_village_mahalla_en" id="permanent_village_mahalla_en" placeholder="গ্রাম/মহল্লা (ইংরেজিতে)" />
+								<InputText  className="form-control" type="text" onChange={e => setpermanent_village_mahalla_en(e.target.value)}   placeholder="গ্রাম/মহল্লা (ইংরেজিতে)" />
                                 <FormLabel> গ্রাম/মহল্লা (বাংলায়) </FormLabel>
-								<InputText  className="form-control" type="text" name="permanent_village_mahalla_bn" id="permanent_village_mahalla_bn" placeholder="গ্রাম/মহল্লা (বাংলায়)" />
+								<InputText  className="form-control" type="text" onChange={e => setpermanent_village_mahalla_bn(e.target.value)}  placeholder="গ্রাম/মহল্লা (বাংলায়)" />
                             </FormGroupRow>
                             <FormGroupRow>
                                 <FormLabel> রোড/ব্লক/সেক্টর (ইংরেজিতে) </FormLabel>
-								<InputText  className="form-control" type="text" name="permanent_road_block_sector_en" id="permanent_road_block_sector_en" placeholder="রোড/ব্লক/সেক্টর (ইংরেজিতে)" />
+								<InputText  className="form-control" type="text" onChange={e => setpermanent_road_block_sector_en(e.target.value)}  placeholder="রোড/ব্লক/সেক্টর (ইংরেজিতে)" />
                                 <FormLabel> রোড/ব্লক/সেক্টর (বাংলায়) </FormLabel>
-								<InputText  className="form-control" type="text" name="permanent_road_block_sector_bn" id="permanent_road_block_sector_bn" placeholder="রোড/ব্লক/সেক্টর (বাংলায়)" />
+								<InputText  className="form-control" type="text" onChange={e => setpermanent_road_block_sector_bn(e.target.value)} n placeholder="রোড/ব্লক/সেক্টর (বাংলায়)" />
                             </FormGroupRow>
                             <FormGroupRow>
                                 <FormLabel> হোল্ডিং নং </FormLabel>
-								<InputText  className="form-control" type="text" name="permanent_holding" id="permanent_holding" placeholder="হোল্ডিং নং" />
+								<InputText  className="form-control" type="text" onChange={e => setpermanent_holding(e.target.value)}  placeholder="হোল্ডিং নং" />
                                 <FormLabel> ওয়ার্ড নং </FormLabel>
-								<InputText  className="form-control" type="text" name="permanent_ward" id="permanent_ward" placeholder="ওয়ার্ড নং" />
+								<InputText  className="form-control" type="text" onChange={e => setpermanent_ward(e.target.value)}  placeholder="ওয়ার্ড নং" />
                             </FormGroupRow>
                             <FormGroupRow>
                                 <FormLabel> জেলা (ইংরেজিতে) </FormLabel>
-                                <SelectOption name="permanent_district_en">
+                                <SelectOption  onChange={e => setpermanent_district_en(e.target.value)}>
                                     <option value=""> চিহ্নিত করুন </option>
                                     <option value=""> Dhaka </option>
                                     <option value=""> Feni </option>
                                 </SelectOption>
                                 <FormLabel> জেলা (বাংলায়) </FormLabel>
-                                <SelectOption name="permanent_district_bn">
+                                <SelectOption  onChange={e => setpermanent_district_bn(e.target.value)}>
                                     <option value=""> চিহ্নিত করুন </option>
                                     <option value=""> ঢাকা </option>
                                     <option value=""> ফেনী </option>
@@ -172,13 +296,13 @@ export default function Citizen(){
                             </FormGroupRow>
                             <FormGroupRow>
                                 <FormLabel> উপজেলা/থানা   </FormLabel>
-                                <SelectOption name="permanent_upazila_thana_en">
+                                <SelectOption  onChange={e => setpermanent_upazila_thana_en(e.target.value)}>
                                     <option value=""> চিহ্নিত করুন </option>
                                     <option value=""> Savar </option>
                                     <option value=""> Feni Sadar </option>
                                 </SelectOption>
                                 <FormLabel> উপজেলা/থানা   (বাংলায়) </FormLabel>
-                                <SelectOption name="permanent_upazila_thana_bn">
+                                <SelectOption  onChange={e => setpermanent_upazila_thana_bn(e.target.value)}>
                                     <option value=""> চিহ্নিত করুন </option>
                                     <option value=""> সাভার  </option>
                                     <option value=""> ফেনী সদর </option>
@@ -186,30 +310,28 @@ export default function Citizen(){
                             </FormGroupRow>
                             <FormGroupRow>
                                 <FormLabel> পোষ্ট অফিস  (বাংলায়) </FormLabel>
-								<InputText  className="form-control" type="text" name="permanent_post_office_bn" id="permanent_post_office_bn" placeholder="পোষ্ট অফিস  (বাংলায়)" />
+								<InputText  className="form-control" type="text" onChange={e => setpermanent_post_office_bn(e.target.value)}  placeholder="পোষ্ট অফিস  (বাংলায়)" />
                                 <FormLabel> পোষ্ট অফিস (ইংরেজিতে) </FormLabel>
-								<InputText  className="form-control" type="text" name="permanent_post_office_bn" id="permanent_post_office_bn" placeholder="পোষ্ট অফিস (ইংরেজিতে)" />
+								<InputText  className="form-control" type="text" onChange={e => setpermanent_post_office_en(e.target.value)}  placeholder="পোষ্ট অফিস (ইংরেজিতে)" />
                             </FormGroupRow>
+                           
                             <p className="textCenter textFontWeight">যোগাযোগের ঠিকানা</p>
                             <FormGroupRow>
                                 <FormLabel> মোবাইল </FormLabel>
-								<InputText  className="form-control" type="text" name="mobile" id="mobile" placeholder="মোবাইল" />
+								<InputText  className="form-control" type="text" onChange={e => setmobile(e.target.value)} placeholder="মোবাইল" />
                                 <FormLabel> ইমেল </FormLabel>
-								<InputText  className="form-control" type="text" name="email" id="email" placeholder="ইমেল" />
+								<InputText  className="form-control" type="text" onChange={e => setemail(e.target.value)}  placeholder="ইমেল" />
                             </FormGroupRow>
                             <FormGroupRow>
                                 <FormLabel> মন্তব্য দিন(ইংরেজিতে) </FormLabel>
-                                <TextareaInput rows="4" name="comment_en" placeholder="মন্তব্য দিন(ইংরেজিতে)"></TextareaInput>
+                                <TextareaInput rows="4" onChange={e => setcomment_en(e.target.value)} placeholder="মন্তব্য দিন(ইংরেজিতে)"></TextareaInput>
                                 <FormLabel> মন্তব্য দিন(বাংলায়) </FormLabel>
-                                <TextareaInput rows="4" name="comment_bn"  placeholder="মন্তব্য দিন(বাংলায়)"></TextareaInput>
+                                <TextareaInput rows="4" onChange={e => setcomment_bn(e.target.value)} placeholder="মন্তব্য দিন(বাংলায়)"></TextareaInput>
                             </FormGroupRow>
-                            <FormGroupRow>
-                                <FormLabel> ছবি </FormLabel>
-								<InputText  className="form-control" type="file" name="picture" id="picture" />
-                            </FormGroupRow><br />
+                            <br />
                             <FormGroupRow>
                                 <div className="col-2"></div>
-                                <ButtonTag className="col-2 btn btn-md btn-success"  type="submit"> <i class="ri-save-line"></i> সাবমিট করুন  </ButtonTag>
+                                <ButtonTag className="col-2 btn btn-md btn-success"  type="submit"> <i className="ri-save-line"></i> সাবমিট করুন  </ButtonTag>
                             </FormGroupRow>
                             
                      </Form>

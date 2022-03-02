@@ -41,17 +41,6 @@ export default function Header(){
 										</ul>
 									</li>
 								</ul>
-
-								<div className="languages-switcher">
-									<i className="ri-global-line"></i>
-									<select>
-										<option value="1">English</option>	
-										<option value="2">العربيّة</option>
-										<option value="3">Deutsch</option>
-										<option value="4">Português</option>
-										<option value="5">简体中文</option>
-									</select>
-								</div>
 							</div>
 						</div>
 					</div>

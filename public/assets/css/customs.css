@@ -37,3 +37,17 @@
 .textRight{
     text-align:right;
 }
+.TextBold{
+    font-weight: 800;
+}
+.imageStyle{
+    height: 100px;
+    width: 115px;
+}
+.floatRight{
+    float: right;
+}
+.imageTagInput{
+    float: right;
+    width: 210px;
+}

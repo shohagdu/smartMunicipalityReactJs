@@ -1,3 +1,4 @@
+import React, {useState} from "react";
 import Form from "../Form";
 import FormGroupRow from "../FormGroupRow";
 import FormLabel from "../FormLabel";
@@ -9,14 +10,42 @@ import LabelRow from "../LabelRow";
 import ButtonTag from "../ButtonTag";
 
 export default function Warish(){
+    const [inputList, setInputList] = useState(['']);
+    
+    const handleinputchange=(e, index)=>{
+        const {name, value}= e.target;
+        const list= [...inputList];
+        list[index][name]= value;
+        setInputList(list);
+    
+      }
+      const handleremove= index=>{
+        const list=[...inputList];
+        list.splice(index,1);
+        setInputList(list);
+      }
+
+      const warishanList = {warish_name_en: '', 
+                            warish_name_bn: '', 
+                            warish_relation_en:'', 
+                            warish_relation_bn:'', 
+                            warish_age:''
+                          };
+
+    const newAddWarish= () => {
+
+        setInputList([...inputList, warishanList])
+
+    }
+
     return (
         <>
-        <section class="user-area" style={{marginTop: '10ppx'}}>
-			<div class="container">
-				<div class="user-form-content register-width">
+        <section className="user-area" style={{marginTop: '10px'}}>
+			<div className="container">
+				<div className="user-form-content register-width">
 					<h3> ওয়ারিশ সনদের আবেদন </h3>
                     <Form id="regForm">
-                        <div class="tab">
+                        <div className="tab">
                             <FormGroupRow>
                                 <FormLabel> নাম (ইংরেজিতে) </FormLabel>
 								<InputText  className="form-control" type="text" name="name_en" id="nameEN" placeholder="নাম (ইংরেজিতে)" />
@@ -71,7 +100,7 @@ export default function Warish(){
                             </FormGroupRow> 
                             <FormGroupRow>
                                 <FormLabel> লিঙ্গ </FormLabel>
-                                <div class="col-4">
+                                <div className="col-4">
 									<CheckboxInput name="gender" value="1"> পুরুষ </CheckboxInput>
 									<CheckboxInput name="gender" value="2"> মহিলা </CheckboxInput>
 									<CheckboxInput name="gender" value="3"> অন্যান্য </CheckboxInput>
@@ -193,7 +222,7 @@ export default function Warish(){
 								<InputText  className="form-control" type="text" name="permanent_post_office_bn" id="permanent_post_office_bn" placeholder="পোষ্ট অফিস (ইংরেজিতে)" />
                             </FormGroupRow>
                         </div>
-                        <div class="tab">
+                        <div className="tab">
                            <p className="textCenter textFontWeight">যোগাযোগের ঠিকানা</p>
                             <FormGroupRow>
                                 <FormLabel> মোবাইল </FormLabel>
@@ -214,47 +243,63 @@ export default function Warish(){
 								<InputText  className="form-control" type="text" name="appicant_father_name_bn" id="appicant_father_name_bn" placeholder="আবেদনকারীর পিতার নাম (বাংলায়)" />
                             </FormGroupRow>
                         </div>
-                        <div class="tab">
-                            <div class="row element2" id="warishAreaDiv_1">
-								<p class="textCenter textFontWeight"> ওয়ারিশগনের তালিকা </p>
-                                <div class="col-2">
-                                    <div class="form-group">
-                                        <LabelRow> নাম (বাংলায়) </LabelRow>
-                                        <InputRow className="form-control" type="text" placeholder="নাম (বাংলায়) " />
+                        { 
+                        inputList.map( (x,i)=>{
+                            return(
+                                <div className="tab" key={i}>
+                                <div className="row element2" id="warishAreaDiv_1">
+                                    <p className="textCenter textFontWeight"> ওয়ারিশগনের তালিকা </p>
+                                    <div className="col-2">
+                                        <div className="form-group">
+                                            <LabelRow> নাম (বাংলায়) </LabelRow>
+                                            <InputRow className="form-control" type="text" placeholder="নাম (বাংলায়)" onChange={ e=>handleinputchange(e,i)} />
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col-2">
-                                    <div class="form-group">
-                                        <LabelRow> নাম (ইংরেজিতে) </LabelRow>
-                                        <InputRow className="form-control" type="text" placeholder="নাম (ইংরেজিতে) " />
-                                    </div>    
-                                </div>
-                                <div class="col-2">
-                                    <div class="form-group">
-                                        <LabelRow> সম্পর্ক (ইংরেজিতে) </LabelRow>
-                                        <InputRow className="form-control" type="text" placeholder="নাম (সম্পর্ক) " />
+                                    <div className="col-2">
+                                        <div className="form-group">
+                                            <LabelRow> নাম (ইংরেজিতে) </LabelRow>
+                                            <InputRow className="form-control" type="text" placeholder="নাম (ইংরেজিতে)" onChange={ e=>handleinputchange(e,i)} />
+                                        </div>    
                                     </div>
-                                </div>
-                                <div class="col-2">
-                                    <div class="form-group">
-                                        <LabelRow> সম্পর্ক (বাংলায়) </LabelRow>
-                                        <InputRow className="form-control" type="text" placeholder="নাম (বাংলায়) " />
+                                    <div className="col-2">
+                                        <div className="form-group">
+                                            <LabelRow> সম্পর্ক (ইংরেজিতে) </LabelRow>
+                                            <InputRow className="form-control" type="text" placeholder="নাম (সম্পর্ক)" onChange={ e=>handleinputchange(e,i)} />
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col-2">
-                                    <div class="form-group">
-                                        <LabelRow> বয়স </LabelRow>
-                                        <InputRow className="form-control" type="text" placeholder="বয়স" />
-                                    </div>    
-                                </div>  
-                                <div class="col-2">
-                                    <div class="form-group">
-                                        <ButtonTag class="btn btn-sm btn-success newAddWarish" type="button" id="newAddWarish"> <i class="ri-add-box-fill"></i> নতুন ওয়ারিশ </ButtonTag>
+                                    <div className="col-2">
+                                        <div className="form-group">
+                                            <LabelRow> সম্পর্ক (বাংলায়) </LabelRow>
+                                            <InputRow className="form-control" type="text" placeholder="নাম (বাংলায়)" onChange={ e=>handleinputchange(e,i)} />
+                                        </div>
                                     </div>
-                               </div>              
-                            </div>
-                        </div> 
+                                    <div className="col-2">
+                                        <div className="form-group">
+                                            <LabelRow> বয়স </LabelRow>
+                                            <InputRow className="form-control" type="text" placeholder="বয়স" onChange={ e=>handleinputchange(e,i)} />
+                                        </div>    
+                                    </div>  
+                                    <div className="col-2">
+                                        <div className="form-group">
+                                        {
+                                            inputList.length!==1 &&
+                                            
+                                            <ButtonTag className="btn btn-sm btn-danger newAddWarish" type="button" onClick={()=> handleremove(i)}  > <i className="ri-delete-bin-line"></i> বাদ দিন  </ButtonTag>
+                                        }
+                                        { inputList.length-1===i &&
+                                        <ButtonTag className="btn btn-sm btn-success newAddWarish" type="button" onClick={newAddWarish}  > <i className="ri-add-box-fill"></i> নতুন ওয়ারিশ </ButtonTag>
+                                        }
+
+                                        </div>
+                                   </div>              
+                                </div>
+                            </div> 
+                            );
+                        } )} 
+                                    
+                       
                      </Form>
+                     
                 </div>
             </div>
         </section>
