@@ -8,20 +8,21 @@ import CheckboxInput from "../CheckboxInput";
 import TextareaInput from "../TextareaInput";
 import ButtonTag from "../ButtonTag";
 import { useState } from "react";
+import axios from "axios";
 
 export default function Citizen(){
 
-    const [nameBn, setNameBn] = useState('');
-    const [nameEn, setNameEn] = useState('');
+    const [name_bn, setNameBn] = useState('');
+    const [name_en, setNameEn] = useState('');
     const [bith_no, setbith_no] = useState('');
     const [national_id, setnational_id] = useState('');
     const [passport, setpassport] = useState('');
     const [date, setdate] = useState('');
-    const [father_name_en, setfather_name_en] = useState('');
-    const [father_name_bn, setfather_name_bn] = useState('');
-    const [mother_name_en, setmother_name_en] = useState('');
-    const [mother_name_bn, setmother_name_bn] = useState('');
-    const [occation, setoccation] = useState('');
+    const [fathers_name_en, setfather_name_en] = useState('');
+    const [fathers_name_bn, setfather_name_bn] = useState('');
+    const [mothers_name_en, setmother_name_en] = useState('');
+    const [mothers_name_bn, setmother_name_bn] = useState('');
+    const [occupation, setoccation] = useState('');
     const [resident, setresident] = useState('');
     const [religion, setreligion] = useState('');
     const [education, seteducation] = useState('');
@@ -58,68 +59,86 @@ export default function Citizen(){
     const [comment_en, setcomment_en] = useState('');
     const [comment_bn, setcomment_bn] = useState('');
 
+    const [loading, setLoading] = useState(false);
+    const [success, setSuccess] = useState('');
+    const [error, setError]     = useState(null);
+
     const submitFormData = (e) => {
         e.preventDefault();
-        
-        const citizenInfo = {
-            nameBn: nameBn,
-            nameEn: nameEn,
-            national_id: national_id,
-            bith_no: bith_no,
-            passport: passport,
-            date: date,
-            father_name_en: father_name_en,
-            father_name_bn: father_name_bn,
-            mother_name_en: mother_name_en,
-            mother_name_bn: mother_name_bn,
-            occation: occation,
-            resident: resident,
-            religion: religion,
-            education: education,
-            gender: gender,
-            marital_status: marital_status,
-            permanent_village_mahalla_en:permanent_village_mahalla_en,
-            permanent_village_mahalla_bn:permanent_village_mahalla_bn,
-            permanent_road_block_sector_en:permanent_road_block_sector_en,
-            permanent_road_block_sector_bn:permanent_road_block_sector_bn,
-            permanent_holding:permanent_holding,
-            permanent_ward:permanent_ward,
-            permanent_district_en:permanent_district_en,
-            permanent_district_bn:permanent_district_bn,
-            permanent_upazila_thana_en:permanent_upazila_thana_en,
-            permanent_upazila_thana_bn:permanent_upazila_thana_bn,
-            permanent_post_office_bn:permanent_post_office_bn,
-            permanent_post_office_en:permanent_post_office_en,
+        setLoading(true);
 
-            present_village_mahalla_en:present_village_mahalla_en,
-            present_village_mahalla_bn:present_village_mahalla_bn,
-            present_road_block_sector_en:present_road_block_sector_en,
-            present_road_block_sector_bn:present_road_block_sector_bn,
-            present_holding:present_holding,
-            present_ward:present_ward,
-            present_district_en:present_district_en,
-            present_district_bn:present_district_bn,
-            present_upazila_thana_en:present_upazila_thana_en,
-            present_upazila_thana_bn:present_upazila_thana_bn,
-            present_post_office_bn:present_post_office_bn,
-            present_post_office_en:present_post_office_en,
-            mobile: mobile,
-            email: email,
-            comment_en: comment_en,
-            comment_bn: comment_bn,
+        const citizenInfo = {
+            name_bn,
+            name_en,
+            national_id,
+            bith_no,
+            passport,
+            date,
+            fathers_name_en,
+            fathers_name_bn,
+            mothers_name_en,
+            mothers_name_bn,
+            occupation,
+            resident,
+            religion,
+            education,
+            gender,
+            marital_status,
+            permanent_village_mahalla_en,
+            permanent_village_mahalla_bn,
+            permanent_road_block_sector_en,
+            permanent_road_block_sector_bn,
+            permanent_holding,
+            permanent_ward,
+            permanent_district_en,
+            permanent_district_bn,
+            permanent_upazila_thana_en,
+            permanent_upazila_thana_bn,
+            permanent_post_office_bn,
+            permanent_post_office_en,
+            present_village_mahalla_en,
+            present_village_mahalla_bn,
+            present_road_block_sector_en,
+            present_road_block_sector_bn,
+            present_holding,
+            present_ward,
+            present_district_en,
+            present_district_bn,
+            present_upazila_thana_en,
+            present_upazila_thana_bn,
+            present_post_office_bn,
+            present_post_office_en,
+            mobile,
+            email,
+            comment_en,
+            comment_bn
         }
+
+        axios.post(process.env.REACT_APP_API_NAME+"api/citizens",citizenInfo)
+            .then((response) => {
+                 console.log(response.data.message);
+                setSuccess(response.data.message);
+            }).catch((err) => {
+                setError(err);
+            }).finally(() => {
+                setLoading(false);
+            })
 
         console.log(citizenInfo);
 
       };
 
+    if(loading) return <h3>Loading..</h3>
+    if(error) return <h3>Something Wrong try again..</h3>
+    
     return (
         <>
         <section className="user-area" style={{marginTop: '10px'}}>
 			<div className="container">
 				<div className="user-form-content register-width">
-                    <h3>নাগরিক আবেদন</h3>
+                    <h3>নাগরিক আবেদন </h3>
                      <Form onSubmit={submitFormData}>
+                            <p>{success}</p>
                             <div className="row">
                              <div className="col-sm-4 col-md-4 col-12">
                              <span className="TextBold" style={{color:"red"}}> নিয়মাবলি : </span>
