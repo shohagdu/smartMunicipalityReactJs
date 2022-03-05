@@ -51,3 +51,11 @@
     float: right;
     width: 210px;
 }
+.errorTextMessageRight{
+    color: red;
+   text-align: right !important;
+}
+.errorTextMessageLeft{
+    color: red;
+   text-align: left !important;
+}

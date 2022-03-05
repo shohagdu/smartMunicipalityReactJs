@@ -9,6 +9,7 @@ import TextareaInput from "../TextareaInput";
 import ButtonTag from "../ButtonTag";
 import { useState } from "react";
 import axios from "axios";
+import { SaveNewCitizen } from "../Service/CitizenService";
 
 export default function Citizen(){
 
@@ -63,7 +64,7 @@ export default function Citizen(){
     const [success, setSuccess] = useState('');
     const [error, setError]     = useState(null);
 
-    const submitFormData = (e) => {
+    const submitFormData = async (e) => {
         e.preventDefault();
         setLoading(true);
 
@@ -114,22 +115,22 @@ export default function Citizen(){
             comment_bn
         }
 
-        axios.post(process.env.REACT_APP_API_NAME+"api/citizens",citizenInfo)
-            .then((response) => {
-                 console.log(response.data.message);
-                setSuccess(response.data.message);
-            }).catch((err) => {
-                setError(err);
-            }).finally(() => {
-                setLoading(false);
-            })
+        const response = await SaveNewCitizen(citizenInfo);
 
-        console.log(citizenInfo);
+            if (response.success) {
+                setSuccess(response.message);
+                setLoading(false);
+                console.log(response.message);
+            }else{
+                setError(response.errors);
+                setLoading(false);
+            }
+        //console.log(citizenInfo);
 
       };
 
     if(loading) return <h3>Loading..</h3>
-    if(error) return <h3>Something Wrong try again..</h3>
+    // if(error) return <h3>Something Wrong try again..</h3>
     
     return (
         <>
@@ -138,7 +139,12 @@ export default function Citizen(){
 				<div className="user-form-content register-width">
                     <h3>নাগরিক আবেদন </h3>
                      <Form onSubmit={submitFormData}>
-                            <p>{success}</p>
+                         {
+                            success && 
+                            <div class="alert alert-success">
+                                {success}
+                            </div>
+                         }
                             <div className="row">
                              <div className="col-sm-4 col-md-4 col-12">
                              <span className="TextBold" style={{color:"red"}}> নিয়মাবলি : </span>
@@ -164,30 +170,45 @@ export default function Citizen(){
                                 <FormLabel> নাম (বাংলায়) </FormLabel>
 								<InputText  className="form-control" type="text" onChange={e => setNameBn(e.target.value)} placeholder="নাম (বাংলায়)" />
                             </FormGroupRow>
+                              {error && error.name_bn && (
+                                    <p className="errorTextMessageRight">{error.name_bn[0]}</p>
+                              )}
                             <FormGroupRow>
                                 <FormLabel> ন্যাশনাল আইডি (ইংরেজিতে) </FormLabel>
 								<InputText  className="form-control" type="text" onChange={e => setnational_id(e.target.value)} placeholder="ন্যাশনাল আইডি (ইংরেজিতে)" />
                                 <FormLabel> জন্ম নিবন্ধন নং (ইংরেজিতে) </FormLabel>
 								<InputText  className="form-control" type="text" onChange={e => setbith_no(e.target.value)}  placeholder="জন্ম নিবন্ধন নং (ইংরেজিতে)" />
                             </FormGroupRow>
+                            {error && error.national_id && (
+                                    <p className="errorTextMessageLeft">{error.national_id[0]}</p>
+                              )}
                             <FormGroupRow>
                                 <FormLabel> পাসপোর্ট নং (ইংরেজিতে)</FormLabel>
 								<InputText  className="form-control" type="text" onChange={e => setpassport(e.target.value)}  placeholder="পাসপোর্ট নং (ইংরেজিতে)" />
                                 <FormLabel> জম্ম তারিখ </FormLabel>
 								<InputText  className="form-control" type="date" onChange={e => setdate(e.target.value)}  placeholder="নাম (বাংলায়)" />
                             </FormGroupRow>
+                            {error && error.date && (
+                                    <p className="errorTextMessageRight">{error.date[0]}</p>
+                              )}
                             <FormGroupRow>
                                 <FormLabel> পিতার নাম (ইংরেজিতে) </FormLabel>
 								<InputText  className="form-control" type="text" onChange={e => setfather_name_en(e.target.value)}   placeholder="পিতার নাম (ইংরেজিতে)" />
                                 <FormLabel> পিতার নাম (বাংলায়) </FormLabel>
 								<InputText  className="form-control" type="text" onChange={e => setfather_name_bn(e.target.value)} name="father_name_bn" id="father_name_bn" placeholder="পিতার নাম (বাংলায়)" />
                             </FormGroupRow>
+                            {error && error.fathers_name_bn && (
+                                    <p className="errorTextMessageRight">{error.fathers_name_bn[0]}</p>
+                              )}
                             <FormGroupRow>
                                 <FormLabel> মাতার নাম (ইংরেজিতে) </FormLabel>
 								<InputText  className="form-control" type="text" onChange={e => setmother_name_en(e.target.value)}  placeholder="মাতার নাম (ইংরেজিতে)" />
                                 <FormLabel>মাতার নাম (বাংলায়)</FormLabel>
 								<InputText  className="form-control" type="text" onChange={e => setmother_name_bn(e.target.value)} placeholder="মাতার নাম (বাংলায়)" />
                             </FormGroupRow>
+                            {error && error.mothers_name_bn && (
+                                    <p className="errorTextMessageRight">{error.mothers_name_bn[0]}</p>
+                              )}
                             <FormGroupRow>
                                 <FormLabel> পেশা </FormLabel>
                                 <InputText  className="form-control" type="text" onChange={e => setoccation(e.target.value)}  placeholder="পেশা" />
@@ -198,6 +219,9 @@ export default function Citizen(){
                                     <option value="2"> স্থায়ী </option>
                                 </SelectOption>
                             </FormGroupRow> 
+                            {error && error.resident && (
+                                    <p className="errorTextMessageRight">{error.resident[0]}</p>
+                              )}
                             <FormGroupRow>
                                 <FormLabel> শিক্ষাগত যোগ্যতা </FormLabel>
                                 <InputText  className="form-control" type="text" onChange={e => seteducation(e.target.value)}  placeholder="শিক্ষাগত যোগ্যতা" />
@@ -227,6 +251,9 @@ export default function Citizen(){
 										<option value='5' >অন্যান্য</option>
                                 </SelectOption>
                             </FormGroupRow>
+                            {error && error.gender && (
+                                    <p className="errorTextMessageRight">{error.gender[0]}</p>
+                              )}
                             <p className="textCenter textFontWeight">বর্তমান  ঠিকানা</p>
                             <FormGroupRow>
                                 <FormLabel> গ্রাম/মহল্লা (ইংরেজিতে) </FormLabel>
@@ -341,6 +368,9 @@ export default function Citizen(){
                                 <FormLabel> ইমেল </FormLabel>
 								<InputText  className="form-control" type="text" onChange={e => setemail(e.target.value)}  placeholder="ইমেল" />
                             </FormGroupRow>
+                            {error && error.mobile && (
+                                    <p className="errorTextMessageRight">{error.mobile[0]}</p>
+                              )}
                             <FormGroupRow>
                                 <FormLabel> মন্তব্য দিন(ইংরেজিতে) </FormLabel>
                                 <TextareaInput rows="4" onChange={e => setcomment_en(e.target.value)} placeholder="মন্তব্য দিন(ইংরেজিতে)"></TextareaInput>
